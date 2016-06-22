@@ -6,21 +6,31 @@
       <title>Amit Yadav- Meetup Demo</title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="/css/default.css">
   </head>
   <body>
 
       <!-- Meetups View -->
       <div ng-controller="meetupsController">
-        <h1>There are {{meetups.length}} meetups</h1>
-        <ul>
-          <li ng-repeat="meetup in meetups">
-            {{meetup.name}} <button ng-click="deleteMeetup(meetup._id, $index)">Delete</button>
-          </li>
-        </ul>
+       <h2>Create new meetups</h2>
         <form ng-submit="createMeetup()">
           <input type="text" placeholder="Meetup name" ng-model="meetupName"></input>
           <button type="submit">Add</button>
         </form> 
+
+        <h1>There are {{meetups.length}} meetups</h1>
+        <table class="caption">
+        	<th>
+        		<td>S.No</td>
+        		<td>Meetup Name</td>
+        		<td>Actions</td>
+        	</th>
+        	<tr ng-repeat="meetup in meetups">
+        	<td>{{$index + 1}}</td>
+        		<td>{{meetup.name}}</td>
+        		<td><button ng-click="deleteMeetup(meetup._id, $index)">Delete</button></td>
+        	</tr>
+        </table>
       </div>
 
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.4/angular.js"></script>

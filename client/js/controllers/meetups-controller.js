@@ -1,6 +1,6 @@
 app.controller('meetupsController', ['$scope', '$resource', function ($scope, $resource) {
   var Meetup = $resource('/api/meetups');
-  var MeetupID = $resource('/api/meetups/:id');
+  var MeetupID = $resource('/api/meetups/:meetupsId');
 
    $scope.meetups = []
   
@@ -19,10 +19,11 @@ app.controller('meetupsController', ['$scope', '$resource', function ($scope, $r
   }
 
   $scope.deleteMeetup = function (id, index) {
-    alert(id);
-    var meetup = new MeetupID();
-    meetup.$remove(function () {
-      $scope.meetups.splice(index, 1);
-    });
+    if(confirm("Are you sure you want to delete this meetup?")){
+      var meetup = new MeetupID();
+      meetup.$remove({meetupsId:id}, function () {
+        $scope.meetups.splice(index, 1);
+      });  
+    }
   }
 }]);

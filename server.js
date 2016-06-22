@@ -12,12 +12,15 @@ app.get('/', function(req, res){
 	res.sendfile(__dirname + '/client/views/index.html');
 });
 
+
 app.use('/js', express.static(__dirname + '/client/js'))
+app.use('/css', express.static(__dirname + '/client/css'))
+app.use(express.static(path.join(__dirname, 'client')));
 
 app.get('/api/meetups', meetupsController.list);
 app.post('/api/meetups', meetupsController.create);
-//app.delete('/api/meetups', meetupsController.remove);
-app.delete('/api/meetups/:id', meetupsController.remove);
+//app.put('/api/meetups', meetupsController.update);
+app.delete('/api/meetups/:meetupsId', meetupsController.remove);
 
 app.listen(3000, function(){
 	console.log("Server: I am listening");
