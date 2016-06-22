@@ -6,7 +6,7 @@
       <title>Amit Yadav- Meetup Demo</title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" type="text/css" href="/css/default.css">
+      <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
 
@@ -20,11 +20,11 @@
 
         <h1>There are {{meetups.length}} meetups</h1>
         <table class="caption">
-        	<th>
-        		<td>S.No</td>
-        		<td>Meetup Name</td>
-        		<td>Actions</td>
-        	</th>
+        	<tr>
+        		<th>S.No</th>
+        		<th>Meetup Name</th>
+        		<th>Actions</th>
+        	</tr>
         	<tr ng-repeat="meetup in meetups">
         	<td>{{$index + 1}}</td>
         		<td>{{meetup.name}}</td>
