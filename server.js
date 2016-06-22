@@ -15,7 +15,6 @@ app.get('/', function(req, res){
 
 app.use('/js', express.static(__dirname + '/client/js'))
 app.use('/css', express.static(__dirname + '/client/css'))
-app.use(express.static(path.join(__dirname, 'client')));
 
 app.get('/api/meetups', meetupsController.list);
 app.post('/api/meetups', meetupsController.create);
